@@ -1,0 +1,65 @@
+<head>
+    <title>Anatoliy Konovalchuk</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="icon" type="image/x-icon" href="icon.png">
+    </head>
+  <body>
+      <div class="w3-bar w3-black">
+          <a href="#" class="w3-button w3-bar-item">Home</a>
+          <a href="#projects" class="w3-button w3-bar-item">Projects</a>
+          <a href="#about" class="w3-button w3-bar-item">About</a>
+        </div>
+        
+        <div id="projects" class="w3-container w3-center">
+            <h1>My Projects</h1>
+            <div class="w3-row-padding">
+                {% for project in projects %}
+                    <div class="w3-col l3 m6 s12" style="width:100%;">
+                        <div class="w3-card w3-margin-bottom">
+                            <img src="{{ project.image_url }}" alt="{{ project.title }}" style="width:25%" onclick="document.getElementById('{{ project.id }}1').style.display='block'">
+                            <img src="{{ project.image_url2 }}" alt="{{ project.title }}" style="width:25%" onclick="document.getElementById('{{ project.id }}2').style.display='block'">
+                            <div class="w3-container">
+                                <h4>{{ project.title }}</h4>
+                                <p>{{ project.description }}</p>
+                                <ul>
+                                    {% for feature in project.features %}
+                                        <li>{{ feature }}</li>
+                                    {% endfor %}
+                                </ul>
+                                <a href="{{ project.github_url }}" class="w3-button w3-black w3-margin-bottom">View on GitHub</a>
+                                <a href="{{ project.download_url }}" class="w3-button w3-black w3-margin-bottom" download>Download EXE</a>
+                            </div>
+                        </div>
+        
+                        <div id="{{ project.id }}1" class="w3-modal">
+                            <img src="{{ project.image_url }}" alt="Full size image" class="w3-modal-content" style="width:50%">
+                            <button class="w3-button w3-display-topright" onclick="document.getElementById('{{ project.id }}1').style.display='none'">&times;</button>
+                        </div>
+                        <div id="{{ project.id }}2" class="w3-modal">
+                            <img src="{{ project.image_url2 }}" alt="Full size image" class="w3-modal-content" style="width:50%">
+                            <button class="w3-button w3-display-topright" onclick="document.getElementById('{{ project.id }}2').style.display='none'">&times;</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        
+                
+                </div>
+                </div>
+                <div id="about" class="w3-center">
+                  <h1 class="w3-xxx w3-black">About Me</h1>
+                  <p>Hi, my name is Anatoliy Konovalchuk. I'm Ukainian-American and I love doing things like drawing, writing, and coding.</p>
+                  <p>This is my website to showcase the cool programs I made. I current code with Python only, but I'm currently planning on learning C#.</p>
+                  <a href="https://github.com/Tolya05/tolya05.github.io" class="w3-button w3-black w3-margin-bottom">Website Code on GitHub</a>
+                </div>
+                <!-- Footer -->
+                <div class="w3-display-container w3-black w3-display-bottom w3-center">
+                  <p>Copyright &copy; Anatoliy Konovalchuk</p>
+                  <a href="https://twitter.com/AnatoliyK05" target="_blank"><img src="imgs/smicons/twitter.png" alt="Twitter"></a>
+                  <a href="https://instagram.com/AnatoliyK05" target="_blank"><img src="imgs/smicons/instagram.png" alt="Instagram"></a>
+                  <a href="https://github.com/Tolya05" target="_blank"><img src="imgs/smicons/github.png" alt="GitHub"></a>
+                </div>
+  </body>  
